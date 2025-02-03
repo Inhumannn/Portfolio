@@ -13,7 +13,8 @@
   --nav: #282829;
   --navtext: #a2a2a2;
   --border: #363636;
-  --active: #458eb1;
+  --contact-hover: #bcbcbc;
+  --competence: #458eb1;
   --hr: #436a7e;
 
   --fs-1: 32px;
@@ -48,7 +49,7 @@ p {
 body {
   max-width: 1240px;
   margin: auto;
-  padding: 40px 0;
+  padding: 40px 30px;
   color: var(--white);
   background-color: var(--body);
   display: grid;
@@ -65,12 +66,20 @@ body {
   }
 
   #hr1 {
-    width: 47px;
-    height: 5px;
-    background-color: var(--hr);
-    border: 1px solid var(--hr);
+    width: 249px;
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      #056dbb,
+      #0951a8,
+      #090979,
+      #090979,
+      #0951a8,
+      #056dbb
+    );
+    border: 0;
     border-radius: 5px;
-    margin: 3px 0 22px;
+    margin: -9px 0 22px;
   }
 
   > footer {
@@ -79,10 +88,11 @@ body {
   }
 
   .border {
+    position: relative;
     border: 1px solid var(--border);
     background-color: var(--background);
     border-radius: 15px;
-    padding: 35px;
+    padding: 0px 35px 35px;
   }
 }
 header {
@@ -90,11 +100,14 @@ header {
   justify-content: space-between;
 
   nav {
+    position: absolute;
+    right: 0;
+    top: 0;
     align-content: center;
     background-color: var(--nav);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 15px 20px;
+    border-radius: 0 12px;
+    padding: 20px 30px;
 
     a {
       font-size: 14px;
@@ -109,13 +122,13 @@ header {
   ul {
     display: flex;
     list-style: none;
-    gap: 37px;
+    gap: 30px;
   }
   .active {
-    color: var(--active);
+    color: var(--competence);
   }
   h1 {
-    padding-top: 10px;
+    padding-top: 26px;
     font-size: 30px;
   }
 }
@@ -138,7 +151,7 @@ main {
     text-align: center;
     .competence {
       font-size: 75px;
-      color: var(--active);
+      color: var(--competence);
     }
   }
 }
@@ -166,11 +179,11 @@ main {
         hsl(0, 0%, 20%) 0%,
         hsla(0, 0%, 25%, 0) 50%
       );
+      color: var(--white);
       background-color: hsl(240, 2%, 13%);
       border-radius: 5px;
       font-size: 13px;
       justify-content: center;
-      color: var(--navtext);
     }
   }
   .contacts-list {
@@ -195,7 +208,7 @@ main {
           text-decoration: none;
           font-size: var(--fs-c);
           &:hover {
-            color: var(--active);
+            color: var(--contact-hover);
           }
         }
         time,
@@ -232,7 +245,12 @@ main {
 }
 footer {
   .border {
-    padding: 15px;
+    /* Test */
+    position: sticky;
+    top: 40px;
+    height: 72%;
+    margin-bottom: -1px;
+    padding: 25px 15px 15px;
   }
 }
 .contacts-list {
@@ -263,4 +281,16 @@ footer {
     #056dbb
   );
   margin: 15px 0;
+}
+
+@media screen and (max-width:1240px){
+  body {
+    grid-template-columns: 1fr;
+    #sidebar {
+      grid-column: 1;
+    }
+    > div {
+      grid-column: 1;
+    }
+  }
 }
