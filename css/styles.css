@@ -185,6 +185,9 @@ main {
       font-size: 13px;
       justify-content: center;
     }
+    div {
+      display: none;
+    }
   }
   .contacts-list {
     display: grid;
@@ -286,11 +289,72 @@ footer {
 @media screen and (max-width:1240px){
   body {
     grid-template-columns: 1fr;
+    gap: 40px;
     #sidebar {
       grid-column: 1;
+      .border {
+        position: relative;
+        top: 0;
+        height: auto;
+        margin-bottom: 0;
+        #resMoi-haut {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 40px;
+          #alignement-pdp {
+            text-align: left;
+        }
+        #moi {
+          margin-top: 5px;
+          p {
+            margin: 0;
+          }
+          > div {
+            display: flex;
+            padding: 4px 0 0 39px;
+            gap: 15px;
+            > a {
+              color: white;
+            }
+          }
+        }
+        #info_more-btn {
+          position: absolute;
+          right: 0;
+          top: 0;
+          padding: 10px 40px;
+          color: var(--competence);
+          background-color: var(--nav);
+          border: 0;
+          border-radius: 0 12px;
+          font-size: 15px;
+        }
+        
+      }
+      #resMoi-bas{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      }
+      #icone-reseaux {
+        display: none;
+      }
     }
     > div {
       grid-column: 1;
     }
+  }
+}
+
+#info_more {
+  display: none;
+}
+
+
+
+@media screen and (max-width:905px){
+  body{
+    background: red;
   }
 }
