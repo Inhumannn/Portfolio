@@ -260,7 +260,7 @@ main {
 
     .reseaux {
       margin: 25px 10px;
-      color: var(--white);
+      color: var(--navtext);
     }
   }
 }

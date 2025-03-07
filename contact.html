@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/conctact.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script defer src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://kit.fontawesome.com/2bb90c57b5.js" crossorigin="anonymous"></script>
     <title>Portfolio - Acceuil</title>
 </head>
@@ -16,27 +18,29 @@
                 <h1>Contact</h1>
                 <nav>
                     <ul>
-                        <li><a href="index.html" class="active">À propos</a></li>
+                        <li><a href="index.html">À propos</a></li>
                         <li><a href="experience.html">Expérience</a></li>
                         <li><a href="portfolio.html">Portfolio</a></li>
                         <li><a href="temoignages.html">Témoignages</a></li>
-                        <li><a href="contact.html">contact</a></li>
+                        <li><a href="contact.html" class="active">contact</a></li>
                     </ul>
                 </nav>
             </header>
             <hr id="hr1">
             <main>
-                <section id="form">
+                <div id="map"></div>
+                <section>
                     <h2>Formulaire de conctact</h2>
-                    <form action="">
-                        <input type="text" name="prenom" id="prenom" placeholder="Prenom" class="form-input">
-                        <input type="text" name="Nom" id="Nom" placeholder="Nom" class="form-input">
-                        <input type="tel" name="" id="" placeholder="Téléphone" class="form-input">
+                    <form action="" id="form">
+                        <input type="text" name="prenom" id="prenom" placeholder="Prenom / Nom" class="form-input">
                         <input type="email" name="mail" id="mail" placeholder="E-mail" class="form-input">
-                        <input type="text" name="" id="" placeholder="Entreprise" class="form-input">
-                        <textarea name="" id="" placeholder="Objet" id="textarea"></textarea>
-                        <input type="submit" value="Envoyer">
+                        <input type="tel" name="tel" id="tel" placeholder="Téléphone" class="form-input">
+                        <textarea name="Objet" id="textarea" placeholder="Objet" class="form-input"></textarea>
                     </form>
+                    <div id="btn_dispo">
+                        <i class="fa-solid fa-paper-plane" id="btn_form_left"></i>
+                        <input type="submit" value="Envoyer" id="btn_form_rigth">
+                    </div>
                 </section>
             </main>
         </div>
@@ -116,6 +120,7 @@
             </section>
         </div>
     </footer>
+    <script defer src="js/map.js"></script>
 </body>
 
 </html>
