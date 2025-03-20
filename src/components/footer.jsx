@@ -1,14 +1,14 @@
 function Footer(){
   return(
-    <footer id="sidebar">
-        <div class="border">
-            <section id="resMoi-haut">
+    <footer className="col-span-1 row-end-1">
+        <div class="relative border border-solid border-[#363636] bg-[#1e1e1f] rounded-[15px] p-[0px 35px 35px]">
+            <section className="resMoi-haut"> {/* Responsive */}
                 <figure>
-                    <div id="alignement-pdp">
-                        <img src="img/moi.png" alt="photo de profil" id="pdp" />
+                    <div className="alignement-pdp">
+                        <img src="img/moi.png" alt="photo de profil" className="pdp" />
                     </div>
                 </figure>
-                <article id="moi">
+                <article className="moi">
                     <h1>Thomas PENA</h1>
                     <p class="contact-icone">Web Developer</p>
                     <div>
@@ -17,12 +17,12 @@ function Footer(){
                     </div>
                 </article>
                 <article>
-                    <button id="info_more-btn">contact</button>
+                    <button className="info_more-btn">contact</button>
                 </article>
             </section>
-            <section id="info_more">
-                <hr id="hr2" />
-                <section id="resMoi-bas">
+            <section className="info_more">
+                <hr className="hr2" />
+                <section className="resMoi-bas">
                     <article class="contacts-list">
                         <div class="contact-container">
                             <div class="contact-icone">
@@ -37,7 +37,7 @@ function Footer(){
                     <article class="contacts-list">
                         <div class="contact-container">
                             <div class="contact-icone">
-                                <i class="fa-solid fa-mobile-screen-button" />
+                                <i class="fa-solclassName fa-mobile-screen-button" />
                             </div>
                             <div class="contact-info">
                                 <p>Télephone</p>
@@ -48,7 +48,7 @@ function Footer(){
                 <article class="contacts-list">
                     <div class="contact-container">
                         <div class=" contact-icone">
-                            <i class="fa-solid fa-cake-candles" />
+                            <i class="fa-solclassName fa-cake-candles" />
                         </div>
                         <div class="contact-info">
                             <p>Date de Naissance</p>
@@ -59,7 +59,7 @@ function Footer(){
                 <article class="contacts-list">
                     <div class="contact-container">
                         <div class="contact-icone">
-                            <i class="fa-solid fa-location-dot" />
+                            <i class="fa-solclassName fa-location-dot" />
                         </div>
                         <div class="contact-info">
                             <p>Localisation</p>
@@ -68,7 +68,7 @@ function Footer(){
                     </div>
                 </article>
                 </section>
-                <article id="icone-reseaux">
+                <article className="icone-reseaux">
                     <a href="www.linkedin.com/in/thomas-pena-bermond"><i class="fa-brands fa-linkedin-in reseaux" /></a>
                     <a href="https://github.com/Inhumannn"><i class="fa-brands fa-github reseaux" /></a>
                 </article>

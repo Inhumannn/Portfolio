@@ -5,7 +5,6 @@ import Home from "./pages/home";
 import NotFound from "./pages/notfound";
 import Portfolio from "./pages/portfolio";
 import Temoignages from "./pages/temoignages";
-import './styles/app.css';
 
 function App(){
   return (

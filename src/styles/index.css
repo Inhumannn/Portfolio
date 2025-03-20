@@ -1,0 +1,11 @@
+@import "tailwindcss";
+#root{
+  max-width: 1240px;
+  margin: auto;
+  padding: 40px 30px;
+  color: var(--white);
+  background-color: var(--body);
+  display: grid;
+  grid-template-columns: 25% auto;
+  gap: 40px;
+}

@@ -1,6 +1,5 @@
 import Footer from "../components/footer"
 import Header from "../components/header"
-import '../styles/temoignages.css'
 
 function Temoignages(){
   return(
@@ -20,7 +19,7 @@ function Temoignages(){
                 <br />
                 <br />
                 <br />
-                <h1>En cour de devellopements</h1>
+                <h1>En cours de developpement</h1>
                 <br />
                 <br />
                 <br />
