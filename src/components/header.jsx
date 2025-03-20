@@ -1,14 +1,16 @@
-function Header(){
+import { NavLink } from "react-router-dom"
+
+function Header({title}){
   return(
     <header>
-      <h1>À propos de moi</h1>
+      <h1>{title}</h1>
       <nav>
         <ul>
-          <li><a href="index.html" class="active">À propos</a></li>
-          <li><a href="experience.html">Expérience</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="temoignages.html">Témoignages</a></li>
-          <li><a href="contact.html">contact</a></li>
+          <li><NavLink to="/">À propos</NavLink></li>
+          <li><NavLink to="/experience">Expérience</NavLink></li>
+          <li><NavLink to="/portfolio">Portfolio</NavLink></li>
+          <li><NavLink to="/temoignages">Témoignages</NavLink></li>
+          <li><NavLink to="/contact">contact</NavLink></li>
         </ul>
       </nav>
     </header>

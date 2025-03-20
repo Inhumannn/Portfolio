@@ -1,12 +1,13 @@
-import Footer from "../components/footer";
-import Header from "../components/header";
+import Footer from "../components/footer"
+import Header from "../components/header"
+import '../styles/contact.css'
 
-function Experience(){
+function Contact(){
   return(
     <body>
-      <div class="border">
+    <div class="border">
         <div id="container">
-          <Header />
+            <Header title="Mes Expériences"/>
             <hr id="hr1" />
             <main>
                 <br />
@@ -41,9 +42,9 @@ function Experience(){
                 <br />
             </main>
         </div>
-      </div>
+    </div>
     <Footer />
-  </body>
+</body>
   )
 }
-export default Experience
+export default Contact
