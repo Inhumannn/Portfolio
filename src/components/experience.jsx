@@ -3,8 +3,7 @@ import Header from "../components/header";
 
 function Experience(){
   return(
-    // Voir pourquoi il aime pas le body dans dans mes <>
-    <>
+    <body>
       <div class="border">
         <div id="container">
           <Header />
@@ -44,7 +43,7 @@ function Experience(){
         </div>
       </div>
     <Footer />
-  </>
+  </body>
   )
 }
 export default Experience
