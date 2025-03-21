@@ -1,21 +1,18 @@
-import Footer from "../components/footer"
-import Header from "../components/header"
-
 function Contact(){
   return(
     <main>
-        <div id="map" />
+        <div className="map" />
         <section>
             <h2>Formulaire de conctact</h2>
-            <form action="" id="form">
-                <input type="text" name="prenom" id="prenom" placeholder="Prenom / Nom" class="form-input" />
-                <input type="email" name="mail" id="mail" placeholder="E-mail" class="form-input" />
-                <input type="tel" name="tel" id="tel" placeholder="Téléphone" class="form-input" />
-                <textarea name="Objet" id="textarea" placeholder="Objet" class="form-input"></textarea>
+            <form action="" className="form">
+                <input type="text" name="prenom" className="prenom" placeholder="Prenom / Nom"/>
+                <input type="email" name="mail" className="mail" placeholder="E-mail"/>
+                <input type="tel" name="tel" className="tel" placeholder="Téléphone"/>
+                <textarea name="Objet" className="textarea" placeholder="Objet"></textarea>
             </form>
-            <div id="btn_dispo">
-                <i class="fa-solid fa-paper-plane" id="btn_form_left" />
-                <input type="submit" value="Envoyer" id="btn_form_rigth" />
+            <div className="btn_dispo">
+                <i className="fa-solid fa-paper-plane" className="btn_form_left" />
+                <input type="submit" value="Envoyer" className="btn_form_rigth" />
             </div>
         </section>
     </main>
