@@ -1,49 +1,38 @@
-import Footer from "../components/footer"
-import Header from "../components/header"
 
 function Experience(){
   return(
-    <body>
-    <div class="border">
-        <div id="container">
-            <Header title="Mes Expériences"/>
-            <hr id="hr1" />
-            {/* <main>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-            </main> */}
-        </div>
-    </div>
-    <Footer />
-</body>
+    <main>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </main>
   )
 }
 export default Experience
