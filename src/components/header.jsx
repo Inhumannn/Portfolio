@@ -1,4 +1,3 @@
-
 function Header({ setCurrentPage, title }){
   return(
     <header className="flex justify-between">
