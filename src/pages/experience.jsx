@@ -8,7 +8,7 @@ function Experience(){
         <div id="container">
             <Header title="Mes Expériences"/>
             <hr id="hr1" />
-            <main>
+            {/* <main>
                 <br />
                 <br />
                 <br />
@@ -39,7 +39,7 @@ function Experience(){
                 <br />
                 <br />
                 <br />
-            </main>
+            </main> */}
         </div>
     </div>
     <Footer />

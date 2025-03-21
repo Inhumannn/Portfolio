@@ -8,7 +8,7 @@ function Contact(){
         <div id="container">
             <Header title="Mes Expériences"/>
             <hr id="hr1" />
-            <main>
+            {/* <main>
                 <div id="map" />
                 <section>
                     <h2>Formulaire de conctact</h2>
@@ -23,7 +23,7 @@ function Contact(){
                         <input type="submit" value="Envoyer" id="btn_form_rigth" />
                     </div>
                 </section>
-            </main>
+            </main> */}
         </div>
     </div>
     <Footer />

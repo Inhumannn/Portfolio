@@ -8,7 +8,7 @@ function Portfolio(){
         <div id="container">
             <Header title="Mes Expériences"/>
             <hr id="hr1" />
-            <main>
+            {/* <main>
                 <section id="presentation">
                     <article id="selection-competence">
                         <p><a href="#">Tous</a></p>
@@ -49,7 +49,7 @@ function Portfolio(){
                         </article>
                     </div>
                 </section>
-            </main>
+            </main> */}
         </div>
     </div>
     <Footer />
