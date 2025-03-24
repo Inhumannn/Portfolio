@@ -1,6 +1,7 @@
 @import "tailwindcss";
 body{
   background-color: #121212;
+  letter-spacing: 0.7px;
   #root{
     max-width: 1240px;
     margin: auto;
@@ -9,5 +10,10 @@ body{
     display: grid;
     grid-template-columns: 25% auto;
     gap: 40px;
+  }
+  #map > div > div.leaflet-control-container > div.leaflet-bottom.leaflet-right > div,
+  #map > div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div > a.leaflet-control-zoom-in,
+  #map > div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div > a.leaflet-control-zoom-out{
+    display: none!important;
   }
 }
