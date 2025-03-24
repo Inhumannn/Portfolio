@@ -16,4 +16,8 @@ body{
   #map > div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div > a.leaflet-control-zoom-out{
     display: none!important;
   }
+  [role="alert"] {
+    color: #ff8589;
+    font-size: 10px;
+  }
 }
