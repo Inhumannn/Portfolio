@@ -12,23 +12,24 @@ function Contact(){
             <h2 className="font-bold text-[24px] pb-[20px]">Formulaire de conctact</h2>
               <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className="grid grid-cols-3 gap-4 justify-items-center pt-[25px] pb-[5px]">
                 <div className="relative">
-                  <input {...register("username", {required:true})} id="username" name="username" type="text" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit"/>
+                  <input {...register("username", {required:true, pattern: {value: /^[A-Za-z]{2,}/, message: "*Le prénom ou le nom est invalide"}})} id="username" name="username" type="text" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit"/>
                   <label htmlFor="username" className="absolute -top-4 text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-[#a2a2a2] peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm">Prénom / nom</label>
                   {errors.username?.type === 'required' && <p role="alert">*Le prénom et le nom sont requis</p>}
+                  {errors.username && (<p role="alert">{errors.username.message}</p>)}
                 </div>
                 <div className="relative">
-                  {/* pattern */}
-                  <input {...register("email", {required:true, pattern: {value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/, message: "*L'email n'est pas valide"} })} id="email" name="email" type="email" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit text-[white]"/>
+                  <input {...register("email", {required:true, pattern: {value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/, message: "*L'email n'est pas valide"} })} id="email" name="email" type="email" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit text-[white]"/>
                   <label htmlFor="email" className="absolute -top-4 text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-[#a2a2a2] peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm">E-mail</label>
                 {errors.email?.type === 'required' && <p role="alert">*L'email est indispensable</p>}
                 {errors.email && (<p role="alert">{errors.email.message}</p>)}
                 </div>
                 <div className="relative">
-                  <input {...register("tel", {required:true})} id="tel" name="tel" type="text" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit"/>
+                  <input {...register("tel", {required:true, pattern: {value: /^(0|\+33)[1-9]( *[0-9]{2}){4}/, message: "*Numéro invalide"}})} id="tel" name="tel" type="text" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit"/>
                   <label htmlFor="tel" className="absolute -top-4 text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-[#a2a2a2] peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm">Téléphone</label>
                 {errors.tel?.type === 'required' && <p role="alert">*Il est conseillé de saisir le numéro</p>}
+                {errors.tel && (<p role="alert">{errors.tel.message}</p>)}
                 </div>                <div className="relative col-[1/4]">
-                <textarea {...register("object", {required:true})} id="object" name="object" placeholder="Objet" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit placeholder-[#a2a2a2] w-178 h-48 my-[20px]"/>
+                <textarea {...register("object", {required:true})} id="object" name="object" placeholder="Je vous contacte en raison de vos compétences et je souhaiterais..." className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit placeholder-[#a2a2a2] w-178 h-48 my-[20px]"/>
                 </div>
               <div className="col-span-3">
                 <button type="submit" className="relative inline-flex h-12 active:scale-95 transistion overflow-hidden rounded-lg p-[1px] focus:outline-none">
