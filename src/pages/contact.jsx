@@ -1,71 +1,86 @@
-import emailjs from '@emailjs/browser';
-import { useRef } from 'react';
-import { useForm } from "react-hook-form";
+import { useRef, useState } from "react";
 import Map from "../components/map";
 
 function Contact(){
-  const {register, handleSubmit, formState: { errors }} = useForm();
-  const onSubmit = data => console.log(data)
+  const [errors, setErrors] = useState({});
+  const form = useRef();
   
-    const form = useRef();
-  
-    const sendEmail = (e) => {
-      e.preventDefault();
+    // const sendEmail = (e) => {
+    //   e.preventDefault();
       
-      emailjs
-        .sendForm('service_0b051tj', 'template_bov462g', form.current, {
-          publicKey: 'm0qrbKCYdqhH4JYc-',
-        })
-        .then(
-          () => {
-            console.log('SUCCESS!');
-          },
-          (error) => {
-            console.log('FAILED...', error.text);
-          },
-        );
-    };
-  const handleFormSubmit = (e) => {
-    handleSubmit(onSubmit),
-    sendEmail(e)
-  }
+    //   emailjs
+    //     .sendForm('service_0b051tj', 'template_bov462g', form.current, {
+    //       publicKey: 'm0qrbKCYdqhH4JYc-',
+    //     })
+    //     .then(
+    //       () => {
+    //         console.log('SUCCESS!');
+    //       },
+    //       (error) => {
+    //         console.log('FAILED...', error.text);
+    //       },
+    //     );
+    // };
+
+    const handleFormSubmit = (e) => {
+      e.preventDefault()
+      let setErrors = {}
+
+      const { name, email, tel, titre, message } = e.target.elements;
+      if (Object.keys(errors).length > 0) {
+        setErrors(newErrors)
+        return
+     }
+      if (!/^\d{10,}$/.test(tel.value)) {
+         setErrors({...errors, tel: {type: 'required', message: '*Il est conseillé de saisir le numéro'}});
+      }
+
+      if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(email.value)) {
+        setErrors({...errors, email: {type: 'required', message: '*L\'email est indispensable'}});
+     }
+
+      if (!/^[a-zA-ZÀ-ÿ\s'-]+$/.test(name.value)) {
+        setErrors({...errors, username: {type: 'required', message: '*Le prénom et le nom sont requis'}});
+     }
+
+      console.log(name.value, email.value, tel.value, titre.value, message.value);
+      // sendEmail(e);
+    }
   return(
     <main>
         <Map />
         <section>
             <h2 className="font-bold text-[24px] pb-[20px]">Formulaire de conctact</h2>
-              <form ref={form} onSubmit={handleFormSubmit} autoComplete="off" className="grid grid-cols-3 gap-4 justify-items-center pt-[25px] pb-[5px]">
+              <form ref={form} onSubmit={handleFormSubmit} autoComplete="off" noValidate className="grid grid-cols-3 gap-4 justify-items-center pt-[25px] pb-[5px]">
                 <div className="relative">
-                  <input {...register("username", {required:true, pattern: {value: /^[A-Za-z]{2,}/, message: "*Le prénom ou le nom est invalide"}})} id="username" name="name" type="text" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit"/>
+                  <input id="username" name="name" type="text" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit"/>
                   <label htmlFor="username" className="absolute -top-4 text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-[#a2a2a2] peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm">Prénom / nom</label>
-                  {errors.username?.type === 'required' && <p role="alert">*Le prénom et le nom sont requis</p>}
+                  {/* {errors.username?.type === 'required' && <p role="alert">*Le prénom et le nom sont requis</p>} */}
                   {errors.username && (<p role="alert">{errors.username.message}</p>)}
                 </div>
                 <div className="relative">
-                  <input {...register("email", {required:true, pattern: {value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/, message: "*L'email n'est pas valide"} })} id="email" name="email" type="email" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit text-[white]"/>
+                  <input id="email" name="email" type="email" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit text-[white]"/>
                   <label htmlFor="email" className="absolute -top-4 text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-[#a2a2a2] peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm">E-mail</label>
-                {errors.email?.type === 'required' && <p role="alert">*L'email est indispensable</p>}
+                {/* {errors.email?.type === 'required' && <p role="alert">*L'email est indispensable</p>} */}
                 {errors.email && (<p role="alert">{errors.email.message}</p>)}
                 </div>
                 <div className="relative">
-                  <input {...register("tel", {required:true, pattern: {value: /^(0|\+33)[1-9]( *[0-9]{2}){4}/, message: "*Numéro invalide"}})} id="tel" name="tel" type="number" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit"/>
+                  <input id="tel" name="tel" type="text" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit"/>
                   <label htmlFor="tel" className="absolute -top-4 text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-[#a2a2a2] peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm">Téléphone</label>
-                {errors.tel?.type === 'required' && <p role="alert">*Il est conseillé de saisir le numéro</p>}
+                {/* {errors.tel?.type === 'required' && <p role="alert">*Il est conseillé de saisir le numéro</p>} */}
                 {errors.tel && (<p role="alert">{errors.tel.message}</p>)}
                 </div>
                 <div className="relative col-span-3 w-[91%] mt-[10px]">
-                  <select {...register("title", {required:true})} id="titre" name="titre" type="text" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-[#1E1E1F] w-[100%]">
+                  <select id="titre" name="titre" type="text" placeholder="" className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-[#1E1E1F] w-[100%]">
                     <option value="Création de site web (portfolio, vitrine, e-commerce, etc.)">Création de site web (portfolio, vitrine, e-commerce, etc.)</option>
                     <option value="Développement d’une fonctionnalité spécifique">Développement d’une fonctionnalité spécifique</option>
                     <option value="Collaboration sur un projet">Collaboration sur un projet</option>
                     <option value="Stage ou alternance">Stage ou alternance</option>
                     <option value="Autre demande">Autre (préciser)</option>
                   </select>
-                  {errors.username?.type === 'required' && <p role="alert">*Le prénom et le nom sont requis</p>}
-                  {errors.username && (<p role="alert">{errors.username.message}</p>)}
                 </div>         
                 <div className="relative col-span-3 w-[91%]">
-                  <textarea {...register("object", {required:true})} id="object" name="message" placeholder="Je vous contacte en raison de vos compétences et je souhaiterais..." className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit placeholder-[#a2a2a2] h-48 my-[20px] w-[100%]"/>
+                  <textarea id="object" name="message" placeholder="Je vous contacte en raison de vos compétences et je souhaiterais..." className="border-b border-gray-300 py-1 focus:border-b-2 focus:border-[#a2a2a2] transition-colors focus:outline-none peer bg-inherit placeholder-[#a2a2a2] h-48 my-[20px] w-[100%]"/>
                 </div>
               <div className="col-span-3">
                 <button type="submit" className="relative inline-flex h-12 active:scale-95 transistion overflow-hidden rounded-lg p-[1px] focus:outline-none" value="Send">
