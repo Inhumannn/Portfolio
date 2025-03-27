@@ -19,7 +19,8 @@ function App() {
     temoignages: <Temoignages />,
     contact: <Contact />,
   }
-  const renderPage = pages[currentPage] || <NotFound />
+  const isValidPage = currentPage in pages
+  const renderPage = isValidPage ? pages[currentPage] : <NotFound />
   const transition = {
     duration: 0.8,
     delay: 0.5,
