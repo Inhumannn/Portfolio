@@ -7,6 +7,7 @@ import Experience from "./pages/experience";
 import Home from "./pages/home";
 import Portfolio from "./pages/portfolio";
 import Temoignages from "./pages/temoignages";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -25,6 +26,7 @@ function App() {
   };
   return (
     <>
+      <Analytics />
       <div className="relative border border-[#363636] bg-[#1e1e1f] rounded-[15px] pt-0 px-[35px] pb-[35px]">
         <div className="bg-[#1e1e1f] rounded-[15px]">
           <Header title={ currentPage === "home" ? "À propos de moi" : currentPage === "experience" ? "Expérience" : currentPage === "portfolio" ? "Portfolio" : currentPage === "temoignages" ? "Témoignages" : currentPage === "contact" ? "Contact" : "Page non trouvée"
