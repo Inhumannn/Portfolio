@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Footer from "./components/footer";
@@ -5,9 +6,9 @@ import Header from "./components/header";
 import Contact from "./pages/contact";
 import Experience from "./pages/experience";
 import Home from "./pages/home";
+import NotFound from "./pages/notfound";
 import Portfolio from "./pages/portfolio";
 import Temoignages from "./pages/temoignages";
-import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -18,7 +19,7 @@ function App() {
     temoignages: <Temoignages />,
     contact: <Contact />,
   };
-  const renderPage = pages[currentPage];
+  const renderPage = pages[currentPage] || <NotFound />
   const transition = {
     duration: 0.8,
     delay: 0.5,
