@@ -23,12 +23,11 @@ function Contact(){
     // };
 
     const handleFormSubmit = (e) => {
-      e.preventDefault()
-      let setErrors = {}
+      e.preventDefault();
+      setErrors({});
 
       const { name, email, tel, titre, message } = e.target.elements;
       if (Object.keys(errors).length > 0) {
-        setErrors(newErrors)
         return
      }
       if (!/^\d{10,}$/.test(tel.value)) {
@@ -42,7 +41,7 @@ function Contact(){
       if (!/^[a-zA-ZÀ-ÿ\s'-]+$/.test(name.value)) {
         setErrors({...errors, username: {type: 'required', message: '*Le prénom et le nom sont requis'}});
      }
-
+     
       console.log(name.value, email.value, tel.value, titre.value, message.value);
       // sendEmail(e);
     }
